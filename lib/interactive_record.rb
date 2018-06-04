@@ -56,10 +56,11 @@ class InteractiveRecord
   end
 
   def self.find_by(hash={})
-    hash.map do |property, value|
+    value = hash.map do |property, value|
       sql = "SELECT * FROM #{self.table_name} WHERE #{property} = '#{value}'"
       DB[:conn].execute(sql)
     end
+    value[0]
   end
 
 end
