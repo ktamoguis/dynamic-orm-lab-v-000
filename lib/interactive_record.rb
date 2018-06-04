@@ -58,7 +58,7 @@ class InteractiveRecord
     binding.pry
     sql = "SELECT * FROM #{self.table_name} WHERE #{key} = ?"
     binding.pry
-    DB[:conn].execute(sql, key:)
+    DB[:conn].execute(sql, key)
   end
 
 end
