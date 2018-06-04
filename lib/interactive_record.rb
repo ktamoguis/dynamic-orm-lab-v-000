@@ -58,9 +58,9 @@ class InteractiveRecord
   def self.find_by(hash={})
     hash.first do |property, value|
       sql = "SELECT * FROM #{self.table_name} WHERE #{property} = '#{value}'"
-      #DB[:conn].execute(sql)
+      value = DB[:conn].execute(sql)
     end
-    DB[:conn].execute(sql)
+    value
   end
 
 end
